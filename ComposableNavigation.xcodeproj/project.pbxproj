@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		46A147562736C1C0008659FA /* ComposableNavigationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147552736C1C0008659FA /* ComposableNavigationApp.swift */; };
-		46A147582736C1C0008659FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147572736C1C0008659FA /* ContentView.swift */; };
+		46A147582736C1C0008659FA /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147572736C1C0008659FA /* Tabbar.swift */; };
 		46A1475A2736C1C8008659FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A147592736C1C8008659FA /* Assets.xcassets */; };
 		46A1475D2736C1C8008659FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A1475C2736C1C8008659FA /* Preview Assets.xcassets */; };
+		46A147642736C398008659FA /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147632736C398008659FA /* TabbarItem.swift */; };
+		46A147662736C576008659FA /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147652736C576008659FA /* JournalView.swift */; };
+		46A147682736D550008659FA /* JournalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147672736D550008659FA /* JournalHeaderView.swift */; };
+		46A1476D2736D675008659FA /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A1476C2736D675008659FA /* MoodView.swift */; };
+		46A1476F2736DC4F008659FA /* MoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A1476E2736DC4E008659FA /* MoodCell.swift */; };
+		46A147722736DD53008659FA /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A147712736DD53008659FA /* GoalsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		46A147522736C1C0008659FA /* ComposableNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComposableNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A147552736C1C0008659FA /* ComposableNavigationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableNavigationApp.swift; sourceTree = "<group>"; };
-		46A147572736C1C0008659FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		46A147572736C1C0008659FA /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		46A147592736C1C8008659FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46A1475C2736C1C8008659FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		46A147632736C398008659FA /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
+		46A147652736C576008659FA /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		46A147672736D550008659FA /* JournalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHeaderView.swift; sourceTree = "<group>"; };
+		46A1476C2736D675008659FA /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
+		46A1476E2736DC4E008659FA /* MoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCell.swift; sourceTree = "<group>"; };
+		46A147712736DD53008659FA /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +63,11 @@
 		46A147542736C1C0008659FA /* ComposableNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				46A147702736DD38008659FA /* Goals */,
+				46A1476B2736D666008659FA /* Mood */,
+				46A1476A2736D658008659FA /* Journal */,
+				46A147692736D64D008659FA /* Tabbar */,
 				46A147552736C1C0008659FA /* ComposableNavigationApp.swift */,
-				46A147572736C1C0008659FA /* ContentView.swift */,
 				46A147592736C1C8008659FA /* Assets.xcassets */,
 				46A1475B2736C1C8008659FA /* Preview Content */,
 			);
@@ -65,6 +80,41 @@
 				46A1475C2736C1C8008659FA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		46A147692736D64D008659FA /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				46A147572736C1C0008659FA /* Tabbar.swift */,
+				46A147632736C398008659FA /* TabbarItem.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		46A1476A2736D658008659FA /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				46A147652736C576008659FA /* JournalView.swift */,
+				46A147672736D550008659FA /* JournalHeaderView.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		46A1476B2736D666008659FA /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				46A1476C2736D675008659FA /* MoodView.swift */,
+				46A1476E2736DC4E008659FA /* MoodCell.swift */,
+			);
+			path = Mood;
+			sourceTree = "<group>";
+		};
+		46A147702736DD38008659FA /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				46A147712736DD53008659FA /* GoalsView.swift */,
+			);
+			path = Goals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46A147582736C1C0008659FA /* ContentView.swift in Sources */,
+				46A147682736D550008659FA /* JournalHeaderView.swift in Sources */,
+				46A1476D2736D675008659FA /* MoodView.swift in Sources */,
+				46A147582736C1C0008659FA /* Tabbar.swift in Sources */,
+				46A147722736DD53008659FA /* GoalsView.swift in Sources */,
+				46A147642736C398008659FA /* TabbarItem.swift in Sources */,
 				46A147562736C1C0008659FA /* ComposableNavigationApp.swift in Sources */,
+				46A1476F2736DC4F008659FA /* MoodCell.swift in Sources */,
+				46A147662736C576008659FA /* JournalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

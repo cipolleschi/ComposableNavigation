@@ -11,7 +11,7 @@ import SwiftUI
 struct ComposableNavigationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Tabbar()
         }
     }
 }
