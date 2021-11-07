@@ -7,8 +7,20 @@
 
 import SwiftUI
 
-struct JournalView: View {
-    var body: some View {
+public struct JournalView<Goals: View, Moods: View>: View {
+    
+    var moodViewProvider: () -> Moods
+    var goalsViewProvider: () -> Goals
+    
+    public init(
+        moodViewProvider: @escaping  () -> Moods,
+        goalsViewProvider: @escaping  () -> Goals
+    ) {
+        self.moodViewProvider = moodViewProvider
+        self.goalsViewProvider = goalsViewProvider
+    }
+    
+    public var body: some View {
         NavigationView {
             VStack {
                 List {
@@ -31,7 +43,7 @@ struct JournalView: View {
                 JournalHeaderView(
                     headerTitle: "Mood",
                     headerImage: "chevron.right",
-                    destination: { MoodView() }
+                    destination: self.moodViewProvider
                 )
             }
         )
@@ -46,7 +58,7 @@ struct JournalView: View {
                 JournalHeaderView(
                     headerTitle: "Goals",
                     headerImage: "plus",
-                    destination: { GoalsView() }
+                    destination: self.goalsViewProvider
                 )
             }
         )
@@ -70,6 +82,9 @@ struct JournalView: View {
 
 struct JournalView_Previews: PreviewProvider {
     static var previews: some View {
-        JournalView()
+        JournalView(
+            moodViewProvider: { return Text("Choose your mood") },
+            goalsViewProvider: { return Text("Provide your goals") }
+        )
     }
 }

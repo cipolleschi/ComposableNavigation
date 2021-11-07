@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct MoodView: View {
-    var body: some View {
+public struct MoodView: View {
+    
+    public init() {}
+    
+    public var body: some View {
         VStack {
             Text("How do you feel today?")
                 .font(.title2)

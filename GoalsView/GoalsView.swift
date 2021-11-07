@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct GoalsView: View {
+public struct GoalsView: View {
     @State var goals: [String] = []
     @State var currentText: String = ""
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         VStack {
             Text("What do you want achieve today?")
                 .font(.title2)
