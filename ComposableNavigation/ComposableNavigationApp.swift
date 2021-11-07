@@ -8,7 +8,7 @@
 import SwiftUI
 import Tabbar
 import Journal
-import Mood
+import Moods
 import GoalsView
 
 @main
