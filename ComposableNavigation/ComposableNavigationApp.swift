@@ -11,8 +11,13 @@ import Journal
 import Moods
 import GoalsView
 
+
+
 @main
 struct ComposableNavigationApp: App {
+    
+    let networkService: NetworkManager = LiveNetworkManager()
+    
     var body: some Scene {
         WindowGroup {
             Tabbar(tabProviders: [
@@ -28,7 +33,7 @@ struct ComposableNavigationApp: App {
             tabName: "Journal"
         ) {
             return JournalView(
-                moodViewProvider: { return MoodView() },
+                moodViewProvider: { return MoodView(viewModel: MoodViewModel()) },
                 goalsViewProvider: { return GoalsView() }
             ).erased
         }
@@ -39,7 +44,11 @@ struct ComposableNavigationApp: App {
             systemImageName: "person.circle.fill",
             tabName: "Profile"
         ) {
-            return Text("Second Tab").erased
+            return ProfileView(
+                    networkService: ProfileManagerService(
+                        networkManager: self.networkService
+                )
+            ).erased
         }
     }
 }
@@ -47,5 +56,52 @@ struct ComposableNavigationApp: App {
 extension View {
     var erased: AnyView {
         return AnyView(self)
+    }
+}
+
+extension LiveNetworkManager: ProfileService {
+    func retrieveProfile() -> String {
+        return get(key: "profile")
+    }
+}
+
+struct ProfileManagerService: ProfileService {
+    let networkManager: NetworkManager
+    
+    func retrieveProfile() -> String {
+        return self.networkManager.get(key: "profile")
+    }
+}
+
+// protocol NetworkManager {}
+// protocol UserPreferencesManager {}
+
+enum UserPreferences {
+    
+    static var coreData: UserPreferencesManager {
+        return CoreDataUserPreferencesManager()
+    }
+    
+    static var userDefaults: UserPreferencesManager {
+        return UserDefaultsUserPreferencesManager()
+    }
+    
+    static var file: UserPreferencesManager {
+        return FileUserPreferencesManager()
+    }
+    
+    private struct CoreDataUserPreferencesManager: UserPreferencesManager {}
+    
+    private struct FileUserPreferencesManager: UserPreferencesManager {}
+    
+    private struct UserDefaultsUserPreferencesManager: UserPreferencesManager {}
+}
+protocol UserPreferencesManager {}
+
+class SomeDependency {
+    let userPreferencesManager: UserPreferencesManager
+    
+    init(userPreferencesManager: UserPreferencesManager = UserPreferences.file) {
+        self.userPreferencesManager = userPreferencesManager
     }
 }

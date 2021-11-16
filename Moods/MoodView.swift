@@ -7,9 +7,16 @@
 
 import SwiftUI
 
-public struct MoodView: View {
-    
+public class MoodViewModel: ObservableObject {
     public init() {}
+}
+
+public struct MoodView: View {
+    @StateObject var viewModel: MoodViewModel
+    
+    public init(viewModel: MoodViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     public var body: some View {
         VStack {
@@ -34,7 +41,7 @@ public struct MoodView: View {
 
 struct MoodView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodView()
+        MoodView(viewModel: .init())
     }
 }
 
